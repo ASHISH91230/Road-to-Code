@@ -35,7 +35,8 @@ Node *flatten(Node *root)
         root = mergeTwoLists(root, root->next); 
   
         // return the root 
-        // it will be in turn merged with its left 
-        return root; 
+ 
+        return root;
+        
 }
 
