@@ -1,0 +1,33 @@
+class Solution:
+    def fill(self, n, m, mat):
+        
+        def fillWithX(r, c):
+            if r < 0 or r >= row or c < 0 or c >= col: return
+
+            if mat[r][c] == "O":
+                mat[r][c] = "-1"
+                fillWithX(r - 1 , c)
+                fillWithX(r + 1 , c)
+                fillWithX(r , c - 1)
+                fillWithX(r , c + 1)
+            
+        if not mat: return []
+        row , col = len(mat) , len(mat[0])
+        
+        for i in range(row):
+            fillWithX(i, 0)
+            fillWithX(i, col - 1)
+            
+        for j in range(col):
+            fillWithX(0, j)
+            fillWithX(row - 1, j)
+            
+        for i in range(row):
+            for j in range(col):
+                if mat[i][j] == "O":
+                    mat[i][j] = "X"
+                elif mat[i][j] == "-1":
+                    mat[i][j] = "O"
+                    
+        return mat
+        
