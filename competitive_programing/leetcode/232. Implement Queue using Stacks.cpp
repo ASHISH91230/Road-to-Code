@@ -26,3 +26,4 @@ class MyQueue {
   stack<int> input;
   stack<int> output;
 };
+
